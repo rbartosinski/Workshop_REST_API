@@ -5,6 +5,9 @@ from django.db import models
 class Person(models.Model):
     name = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.name
+
 
 class Movie(models.Model):
     title = models.CharField(max_length=128)
@@ -15,6 +18,9 @@ class Movie(models.Model):
     starring = models.ManyToManyField(Person, through='StarringPersons',
                                       related_name='movies_starr')
     year = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class StarringPersons(models.Model):
