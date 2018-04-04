@@ -24,6 +24,6 @@ class Movie(models.Model):
 
 
 class StarringPersons(models.Model):
-    person = models.ForeignKey(Person, null=True, on_delete=models.SET_NULL)
-    movie = models.ForeignKey(Movie, null=True, on_delete=models.SET_NULL)
+    person = models.ForeignKey(Person, null=True, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
     role = models.CharField(max_length=128, null=True)
